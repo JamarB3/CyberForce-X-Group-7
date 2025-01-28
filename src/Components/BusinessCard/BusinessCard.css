@@ -1,0 +1,60 @@
+.businessCard {
+    border:1px solid lightgray;
+    height:150px;
+    width:290px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    margin:0;
+    padding: 0;
+    flex-grow:1;
+}
+
+.businessCard .flexContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+
+}
+
+.ratingContent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px; /* Added to replace spacing from removed container */
+}
+
+.businessCard h1 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-top:12px;
+    margin-bottom: 0px;
+    padding-bottom:0px;
+}
+
+.businessCard .icon {
+    width:50px;
+    height:50px;
+    border-radius: 10%;
+    margin-left:10px;
+    align-self: flex-start;
+}
+
+.ratingText p {
+    color:black;
+    font-size: 14px;
+    margin:5px;
+    font-weight: 400;
+}
+
+.star {
+    width:18px;
+    height: 18px;
+}
+.distance {
+    color:black;
+}
