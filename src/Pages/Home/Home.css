@@ -1,0 +1,49 @@
+
+.flexContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.blueBox {
+    background-color: rgb(32, 32, 64);
+    color: white;
+    width: 100%;
+    height:490px;
+    margin-bottom: 70px;
+    
+}
+
+.blueBox h1 {
+    font-size: 28px;
+    padding:20px;
+    margin:10px;
+    font-weight: 800;
+
+}
+
+.gridContainer {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 50px;
+    column-gap: 100px;
+    height:400px;
+}
+
+.topLeft {
+    position: relative;
+    bottom:30px;
+    font-size:22px;
+    margin:30px;
+    text-align: center;
+}
+
+.footer {
+    background-color: black;
+    color: white;
+    height: 200px;
+    padding:0;
+    margin: 0;
+}
