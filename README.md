@@ -10,7 +10,7 @@ Currently, two official plugins are available:
 =======
 # CyberForce-X-Group-7 (SP 2024 - 2025)
 Senior Project from Fall 2024-Spring 2025 by CyberForce-X-Group-7(Jamar Bailey III, Miles Adedjouma, Christian Batson, Kaleb Berry, and Darnell Love) at Howard University.
->>>>>>> fd5628f40d8f297cf586ada222871e0a0618e61d
+
 # Instructions
 npm install <-- install required dependencies
 npm run dev <-- Start React App
