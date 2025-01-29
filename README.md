@@ -12,11 +12,16 @@ npm install    # Install required dependencies
 npm run dev    # Start React App
 ```
 # Github instructions
+Pushing to your GitHub branch
 ```sh
 git init
 git add .
 git remote add origin https://github.com/JamarB3/CyberForce-X-Group-7.git
-git checkout YourBranchName
+git checkout <your-branch-name>
 git commit -m "Commit Notes"
-git push -u origin YourBranchName
+git push -u origin <your-branch-name>
 ```
+Cloning from a GitHub Branch
+git clone --branch <branch-name> https://github.com/JamarB3/CyberForce-X-Group-7.git
+
+
