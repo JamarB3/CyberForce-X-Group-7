@@ -11,8 +11,8 @@ Currently, two official plugins are available:
 Senior Project from Fall 2024-Spring 2025 by CyberForce-X-Group-7(Jamar Bailey III, Miles Adedjouma, Christian Batson, Kaleb Berry, and Darnell Love) at Howard University.
 
 # Instructions
-npm install <-- install required dependencies
-npm run dev <-- Start React App
+npm install # install required dependencies
+npm run dev #  Start React App
 
 # Github
 git init
