@@ -22,6 +22,9 @@ git commit -m "Commit Notes"
 git push -u origin <your-branch-name>
 ```
 Cloning from a GitHub Branch
+```sh
 git clone --branch <branch-name> https://github.com/JamarB3/CyberForce-X-Group-7.git
+```
+
 
 
