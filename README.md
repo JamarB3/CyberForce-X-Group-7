@@ -6,7 +6,7 @@ This project was setup with React/vite
 Senior Project from Fall 2024-Spring 2025 by CyberForce-X-Group-7(Jamar Bailey III, Miles Adedjouma, Christian Batson, Kaleb Berry, and Darnell Love) at Howard University.
 
 
-# Instructions
+# Instructions to run
 ```sh
 npm install    # Install required dependencies
 npm run dev    # Start React App
