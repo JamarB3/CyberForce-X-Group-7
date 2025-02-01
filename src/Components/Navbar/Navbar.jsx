@@ -1,14 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Navbar.css'
 import search from '../../assets/search.png'
 import logoIpsum from '../../assets/logoipsum-332.svg'
-import LoginModal from '../../Pages/LoginModal/LoginModal'
-import {Button} from 'react-bootstrap'
+import Modal from '../../Components/Modal/Modal'
 
 
 
 const Navbar = () => {
-    const [show, setShow] = useState(false);
+    const [modal, setModal] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
+
+    
   return (
     <nav>
         <div className='flexBar'>
@@ -36,7 +38,7 @@ const Navbar = () => {
         </div>
 
         <div className='navEnd flexBar'>
-            <div className='signIn loginBox' onClick={setShow(true)}>
+            <div className='signIn loginBox'>
                 <p> Sign In </p>
             </div>
             <div className='Register loginBox'>
@@ -44,7 +46,6 @@ const Navbar = () => {
             </div>
         </div>
     
-        <LoginModal> </LoginModal>
 
         </div>
     </nav>
