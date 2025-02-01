@@ -9,8 +9,35 @@ const Businesses= () => {
 <div className="flexContainer blueBox">
         <div className="flexContainer">
           <h1> Businesses</h1>
+
         </div>
       </div>
+
+< div className="flexContainer blueBox">
+        <div className="flexContainer">
+
+          <h2> Popular Businesses</h2>
+
+
+        </div>
+      </div>
+
+<div className="flexContainer blueBox">
+        <div className="flexContainer">
+
+          <h2> New Businesses</h2>
+
+        </div>
+      </div>
+
+<div className="flexContainer blueBox">
+        <div className="flexContainer">
+
+          <h2> For You</h2>
+
+        </div>
+      </div>
+
 </div>
   )
 }
