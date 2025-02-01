@@ -106,11 +106,24 @@ nav {
     background-color: #e3e3e3;
     color:black;
     border: 1px solid #2c2c2c;
+    transition: 0.3s all;
 }
+
+
+
 
 .Register {
     background-color: black;
     color:white;
     border: 1px solid black;
+    transition: 0.3s all;
 }
 
+.Register:hover {
+    background-color: #474747;
+}
+
+.signIn:hover {
+    background-color: #c7c6c6;
+
+}
