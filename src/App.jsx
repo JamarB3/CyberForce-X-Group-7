@@ -2,30 +2,36 @@ import React, { useState } from "react";
 import { dummyReviews } from "./data/dummyReviews";
 import ReviewPopup from "./components/ReviewPopup";
 import "./App.css";
-import placeholderImage from "./assets/placeholder-image.jpg"; // Ensure the image is in the correct directory
+import placeholderImage from "./assets/placeholder-image.jpg";
 
 const App = () => {
-  const [showPopup, setShowPopup] = useState(false); // State to toggle popup visibility
-  const [reviews, setReviews] = useState(dummyReviews); // Combine dummyReviews with new ones
+  const [showPopup, setShowPopup] = useState(false);
+  const [reviews, setReviews] = useState(dummyReviews);
+  const [expandedImage, setExpandedImage] = useState(null); // State for expanded image
 
   const handlePopupClose = () => {
     setShowPopup(false);
   };
 
   const handleReviewSubmit = (newReview) => {
-
-    
     const formattedReview = {
-      
-      id: reviews.length + 1, // Assign a unique ID
-      user: "Anonymous User", // Placeholder for user (can be updated later)
+      id: reviews.length + 1,
+      user: "Anonymous User",
       rating: newReview.rating,
       review: newReview.reviewText,
       date: new Date().toLocaleDateString(),
-      photo: newReview.uploadedFiles, // Handle multiple uploaded files
+      photo: newReview.uploadedFiles,
     };
 
-    setReviews([formattedReview, ...reviews]); // Add new review to the top
+    setReviews([formattedReview, ...reviews]);
+  };
+
+  const handleImageClick = (imageSrc) => {
+    setExpandedImage(imageSrc);
+  };
+
+  const handleCloseExpandedImage = () => {
+    setExpandedImage(null);
   };
 
   return (
@@ -33,12 +39,10 @@ const App = () => {
       <h1>Our App! It works!</h1>
       <h2>User Reviews</h2>
 
-      {/* Button to open the review popup */}
       <button className="test-button" onClick={() => setShowPopup(true)}>
         Add a Review
       </button>
 
-      {/* Display the popup if showPopup is true */}
       {showPopup && (
         <ReviewPopup onClose={handlePopupClose} onSubmit={handleReviewSubmit} />
       )}
@@ -53,26 +57,22 @@ const App = () => {
             margin: "10px 0",
             borderRadius: "5px",
             display: "flex",
-            alignItems: "center", // Align items horizontally
+            alignItems: "flex-start", // Align items to the top
             gap: "10px",
           }}
         >
-          {/* User avatar using placeholder image */}
           <img
             src={placeholderImage}
             alt="User Avatar"
             style={{
-              width: "40px", // Adjust size of the image
+              width: "40px",
               height: "40px",
               borderRadius: "50%",
               objectFit: "cover",
             }}
           />
           <div>
-            <h3 style={{ display: "inline-block", marginLeft: "10px" }}>
-              {review.user}
-            </h3> {/* Align user name next to the avatar */}
-            {/* Display the rating as stars */}
+            <h3>{review.user}</h3>
             <p>
               {[1, 2, 3, 4, 5].map((star) => (
                 <span
@@ -85,7 +85,6 @@ const App = () => {
             </p>
             <p>{review.review}</p>
             <small>Date: {review.date}</small>
-            {/* Display uploaded photo if available */}
             {review.photo && (
               <div className="uploaded-photos">
                 {review.photo.map((file, index) => (
@@ -97,7 +96,9 @@ const App = () => {
                       marginTop: "10px",
                       maxWidth: "100px",
                       borderRadius: "5px",
+                      cursor: "pointer", // Indicate it's clickable
                     }}
+                    onClick={() => handleImageClick(URL.createObjectURL(file))} // Expand on click
                   />
                 ))}
               </div>
@@ -105,6 +106,35 @@ const App = () => {
           </div>
         </div>
       ))}
+
+      {/* Expanded Image Overlay */}
+      {expandedImage && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.8)", // Semi-transparent background
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 1000, // Ensure it's on top
+          }}
+          onClick={handleCloseExpandedImage} // Close on background click
+        >
+          <img
+            src={expandedImage}
+            alt="Expanded Review Attachment"
+            style={{
+              maxWidth: "90%",
+              maxHeight: "90%",
+              borderRadius: "5px",
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 };
