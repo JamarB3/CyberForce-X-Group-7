@@ -14,7 +14,9 @@ const Home = () => {
 
       <div className="flexContainer blueBox">
         <div className="flexContainer">
-          <h1>Welcome to InclusiFind</h1>
+          <h1>Welcome to <span>InclusiFind</span> </h1>
+          <br />
+          <h2></h2>
         </div>
       </div>
 
