@@ -3,6 +3,7 @@ import { dummyReviews } from "../../data/dummyReviews/dummyReviews";
 import ReviewPopup from "../../components/ReviewPopup/ReviewPopup";
 import "./ReviewPage.css";
 import placeholderImage from "../../assets/placeholder-image.jpg";
+import Helpful from "../../components/Helpful/Helpful";
 
 const ReviewPage = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -21,6 +22,7 @@ const ReviewPage = () => {
       review: newReview.reviewText,
       date: new Date().toLocaleDateString(),
       photo: newReview.uploadedFiles,
+      helpfulCount: 0,
     };
     setReviews([formattedReview, ...reviews]);
     setShowPopup(false);
@@ -56,8 +58,8 @@ const ReviewPage = () => {
                   </span>
                 ))}
               </div>
-              <p>{review.review}</p>
-              <small>Date: {review.date}</small>
+              <p>{review.review}</p> {/* Review Text First */}
+              <small>Date: {review.date}</small> {/* Date Second */}
               {review.photo && (
                 <div className="uploaded-photos">
                   {review.photo.map((file, index) => (
@@ -70,7 +72,8 @@ const ReviewPage = () => {
                     />
                   ))}
                 </div>
-              )}
+              )} {/* Images Third */}
+              <Helpful initialHelpfulCount={review.helpfulCount} /> {/* Helpful Last */}
             </div>
           </div>
         ))}
