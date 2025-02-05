@@ -4,11 +4,13 @@ import ReviewPopup from "../../components/ReviewPopup/ReviewPopup";
 import "./ReviewPage.css";
 import placeholderImage from "../../assets/placeholder-image.jpg";
 import Helpful from "../../components/Helpful/Helpful";
+import EditDelete from "../../components/EditDelete/EditDelete";
 
 const ReviewPage = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [reviews, setReviews] = useState(dummyReviews);
   const [expandedImage, setExpandedImage] = useState(null);
+  const currentUser = "Anonymous User"; // Replace with actual user logic
 
   const handlePopupClose = () => {
     setShowPopup(false);
@@ -17,7 +19,7 @@ const ReviewPage = () => {
   const handleReviewSubmit = (newReview) => {
     const formattedReview = {
       id: reviews.length + 1,
-      user: "Anonymous User",
+      user: currentUser, // Set the user to the current user
       rating: newReview.rating,
       review: newReview.reviewText,
       date: new Date().toLocaleDateString(),
@@ -34,6 +36,18 @@ const ReviewPage = () => {
 
   const handleCloseExpandedImage = () => {
     setExpandedImage(null);
+  };
+
+  const handleDeleteReview = (reviewId) => {
+    setReviews(reviews.filter((review) => review.id !== reviewId));
+  };
+
+  const handleEditReview = (reviewId, editedReview) => {
+    setReviews(
+      reviews.map((review) =>
+        review.id === reviewId ? { ...review, ...editedReview } : review
+      )
+    );
   };
 
   return (
@@ -58,8 +72,8 @@ const ReviewPage = () => {
                   </span>
                 ))}
               </div>
-              <p>{review.review}</p> {/* Review Text First */}
-              <small>Date: {review.date}</small> {/* Date Second */}
+              <p>{review.review}</p>
+              <small>Date: {review.date}</small>
               {review.photo && (
                 <div className="uploaded-photos">
                   {review.photo.map((file, index) => (
@@ -72,8 +86,15 @@ const ReviewPage = () => {
                     />
                   ))}
                 </div>
-              )} {/* Images Third */}
-              <Helpful initialHelpfulCount={review.helpfulCount} /> {/* Helpful Last */}
+              )}
+              <Helpful initialHelpfulCount={review.helpfulCount} />
+              {review.user === currentUser && ( // Conditionally render EditDelete
+                <EditDelete
+                  review={review}
+                  onDelete={handleDeleteReview}
+                  onEdit={handleEditReview}
+                />
+              )}
             </div>
           </div>
         ))}

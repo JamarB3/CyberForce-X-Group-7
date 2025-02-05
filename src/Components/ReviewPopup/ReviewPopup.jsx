@@ -1,24 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ReviewPopup.css";
 
-const ReviewPopup = ({ onClose, onSubmit }) => {
+const ReviewPopup = ({ onClose, onSubmit, review, isEditing }) => {
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState(0);
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [newlyUploadedFiles, setNewlyUploadedFiles] = useState([]);
+
+  useEffect(() => {
+    if (isEditing && review) {
+      setReviewText(review.review);
+      setRating(review.rating);
+      setUploadedFiles(review.photo || []);
+      setNewlyUploadedFiles([]);
+    } else {
+      setReviewText("");
+      setRating(0);
+      setUploadedFiles([]);
+      setNewlyUploadedFiles([]);
+    }
+  }, [isEditing, review]);
 
   const handleFileUpload = (event) => {
     const files = Array.from(event.target.files);
-    if (files.length + uploadedFiles.length > 3) {
+    if (files.length + uploadedFiles.length + newlyUploadedFiles.length > 3) {
       alert("You can only upload up to 3 photos.");
       return;
     }
-    setUploadedFiles((prevFiles) => [...prevFiles, ...files]);
+    setNewlyUploadedFiles((prevFiles) => [...prevFiles, ...files]);
   };
 
   const handleSubmit = () => {
     if (reviewText && rating > 0) {
-      onSubmit({ reviewText, rating, uploadedFiles });
+      const allFiles = [...uploadedFiles, ...newlyUploadedFiles];
+      onSubmit({ reviewText, rating, uploadedFiles: allFiles });
       onClose();
     } else {
       alert("Please provide a rating and review text before submitting.");
@@ -26,17 +42,28 @@ const ReviewPopup = ({ onClose, onSubmit }) => {
   };
 
   const handleNextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % uploadedFiles.length);
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % (uploadedFiles.length + newlyUploadedFiles.length));
   };
 
   const handlePrevSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide - 1 + uploadedFiles.length) % uploadedFiles.length);
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + uploadedFiles.length + newlyUploadedFiles.length) % (uploadedFiles.length + newlyUploadedFiles.length));
   };
+
+
+  const handleRemoveFile = (indexToRemove, isNewlyUploaded) => {
+    if (isNewlyUploaded) {
+      setNewlyUploadedFiles(newlyUploadedFiles.filter((_, index) => index !== indexToRemove));
+    } else {
+      setUploadedFiles(uploadedFiles.filter((_, index) => index !== indexToRemove));
+    }
+  };
+
+  const allFiles = [...uploadedFiles, ...newlyUploadedFiles];
 
   return (
     <div className="popup-overlay">
       <div className="popup-content">
-        <h2>Reviewee (Business)</h2>
+        <h2>{isEditing ? "Edit Review" : "Reviewee (Business)"}</h2>
 
         <div className="stars-container">
           {[1, 2, 3, 4, 5].map((star) => (
@@ -71,41 +98,33 @@ const ReviewPopup = ({ onClose, onSubmit }) => {
             style={{ display: "none" }}
           />
 
-          {uploadedFiles.length > 0 && (
+          {allFiles.length > 0 && (
             <div className="file-feedback">
-              <small>{uploadedFiles.length} file(s) uploaded successfully!</small>
-              {uploadedFiles.length > 0 ? ( // Changed condition to just check for files
-                <div className="slideshow">
-                  <button className="prev-button" onClick={handlePrevSlide} disabled={uploadedFiles.length <= 1}>
-                    ◀
-                  </button>
-                  <img
-                    src={URL.createObjectURL(uploadedFiles[currentSlide])}
-                    alt={`Slide ${currentSlide + 1}`}
-                    className="slideshow-image"
-                  />
-                  <button className="next-button" onClick={handleNextSlide} disabled={uploadedFiles.length <= 1}>
-                    ▶
-                  </button>
-                </div>
-              ) : null}
-                 <div className="thumbnail-container">
-                  {uploadedFiles.map((file, index) => (
-                    <img
-                      key={index}
-                      src={URL.createObjectURL(file)}
-                      alt={`Uploaded ${index + 1}`}
-                      className="thumbnail"
-                    />
-                  ))}
-                </div>
+              <small>{allFiles.length} file(s) uploaded successfully!</small>
+              <div className="thumbnail-container">
+                {allFiles.map((file, index) => {
+                  const isNewlyUploaded = index >= uploadedFiles.length;
+                  return (
+                    <div key={index} className="thumbnail-wrapper">
+                      <img
+                        src={URL.createObjectURL(file)}
+                        alt={`Uploaded ${index + 1}`}
+                        className="thumbnail"
+                      />
+                      <span className="remove-file" onClick={() => handleRemoveFile(index, isNewlyUploaded)}>
+                        &times;
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           )}
         </div>
 
         <div className="popup-buttons">
           <button onClick={handleSubmit} className="submit-button">
-            Submit
+            {isEditing ? "Save Changes" : "Submit"}
           </button>
           <button onClick={onClose} className="cancel-button">
             Cancel
