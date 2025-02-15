@@ -1,3 +1,5 @@
+/* src/pages/ReviewPage/ReviewPage.css */
+
 .review-page-container {
     padding: 20px;
 }
@@ -66,18 +68,19 @@
     border-radius: 5px;
 }
 
-.test-button {
+.test-button { /* This is now the create review button */
     margin-bottom: 20px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #007bff; /* Or your desired color */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 80px; /* Push it down */
 }
 
 .test-button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Or your desired hover color */
 }
 
 /* Styles for the ReviewPopup component (if needed) */
@@ -87,18 +90,18 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1001; /* Ensure it's above other content */
+    z-index: 1001;
 }
 
 .popup-content {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    max-width: 600px; /* Adjust as needed */
+    max-width: 600px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -124,8 +127,8 @@
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    resize: vertical; /* Allow vertical resizing */
-    min-height: 100px; /* Set a minimum height */
+    resize: vertical;
+    min-height: 100px;
 }
 
 .upload-container {
@@ -136,9 +139,9 @@
     cursor: pointer;
     font-size: 1.2em;
     margin-right: 5px;
-    position: relative; /* For tooltip positioning */
-    display: inline-flex; /* Needed for tooltip to work correctly */
-    align-items: center; /* Vertically center the icon and text */
+    position: relative;
+    display: inline-flex;
+    align-items: center;
 }
 
 .tooltip {
@@ -151,9 +154,9 @@
     padding: 5px 0;
     position: absolute;
     z-index: 1;
-    bottom: 125%; /* Position below the icon */
+    bottom: 125%;
     left: 50%;
-    margin-left: -60px; /* Center the tooltip */
+    margin-left: -60px;
     opacity: 0;
     transition: opacity 0.5s;
 }
@@ -168,7 +171,7 @@
 }
 
 .slideshow {
-    position: relative; /* For positioning buttons */
+    position: relative;
     margin-bottom: 10px;
 }
 
@@ -187,7 +190,7 @@
     border: none;
     padding: 10px;
     cursor: pointer;
-    z-index: 1; /* Ensure buttons are on top of image */
+    z-index: 1;
 }
 
 .prev-button {
@@ -212,7 +215,7 @@
 
 .popup-buttons {
     display: flex;
-    justify-content: flex-end; /* Align buttons to the right */
+    justify-content: flex-end;
     gap: 10px;
 }
 
@@ -224,10 +227,10 @@
 }
 
 .submit-button {
-    background-color: #007bff; /* Example color */
+    background-color: #007bff;
     color: white;
 }
 
 .cancel-button {
-    background-color: #ccc; /* Example color */
+    background-color: #ccc;
 }
