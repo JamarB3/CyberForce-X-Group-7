@@ -18,6 +18,7 @@
     display: flex;
     align-items: flex-start;
     gap: 15px;
+    position: relative; /* For positioning the report icon */
 }
 
 .user-avatar {
@@ -233,4 +234,33 @@
 
 .cancel-button {
     background-color: #ccc;
+}
+
+.review-actions {
+    display: flex; /* or inline-flex */
+    align-items: center;
+    gap: 10px; /* Space between buttons */
+    margin-top: 10px; /* Space above the buttons */
+    justify-content: flex-end; /* Align to the right */
+}
+
+.report-icon {
+    cursor: pointer;
+    font-size: 1.2em;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    color: red; /*Make the icon red */
+    margin-left: 10px; /* Add some left margin */
+}
+
+.report-icon:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.helpful-button { /* Style for helpful button if needed */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
 }
