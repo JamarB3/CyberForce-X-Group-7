@@ -115,6 +115,7 @@ const ReviewPage = () => {
                                 onClick={() => handleReportClick(review)}
                             >
                                 !
+                                <span className="report-text">Report Review</span> {/* Added text span */}
                                 <span className="tooltip">Report Review</span>
                             </span>
                         </div>

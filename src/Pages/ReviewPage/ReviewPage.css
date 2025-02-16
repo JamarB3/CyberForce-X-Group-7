@@ -254,6 +254,13 @@
     margin-left: 10px; /* Add some left margin */
 }
 
+.report-text {  /* Style for the "Report Review" text */
+    margin-left: 2px; /* Space between icon and text */
+    white-space: nowrap; /* Prevent text from wrapping */
+    color: black; /*Make the icon red */
+    font-size: 0.6em;
+}
+
 .report-icon:hover .tooltip {
     visibility: visible;
     opacity: 1;
