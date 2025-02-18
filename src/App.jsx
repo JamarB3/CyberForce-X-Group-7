@@ -8,6 +8,7 @@ import Businesses from './Pages/Businesses/Businesses'
 
 
 const App = () => {
+  
   return (
     <div>
       <Navbar />
