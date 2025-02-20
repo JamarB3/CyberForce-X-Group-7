@@ -9,8 +9,37 @@ app.use(cors());
 app.use(express.json());
 
 // Create User Profile
+app.post("/api/users", async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
 
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: "All fields are required." });
+    }
 
+    // Checking if email already exists
+    const [ExistingUser] = await db.query("SELECT * FROM users WHERE email = ?", [email]);
+    if (ExistingUser.length > 0) {
+      return res.status(400).json({ message: "Email already exists."});
+    }
+
+    /*
+    // Hashing password before storing
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Insert (w encnrypted user into MySQL)
+    await db.query("INSERT INTO Users (name, email, password) VALUES (?, ?, ?)", [name,email,hashedPassword]);
+    */
+
+    //Testing
+    await db.query("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", [name, email, password]);
+
+    res.status(201).json({ message: "User profile creation is successful!" });
+  } catch (error) {
+    console.error("Database error:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
 
 // Route for getting all review data from the database 
 app.get('/api/reviews', async (req, res) => { //Route for GET request, async = asynchronous operation 
