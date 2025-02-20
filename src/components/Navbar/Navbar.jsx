@@ -15,38 +15,43 @@ const Navbar = () => {
     return (
         <nav>
             <div className='flexBar'>
-
-                <div className='navLeft flexBar'>
+                <div className='navLeft'>
                     <div className="logo">
-                        <img src={logoIpsum} alt="logo"/>
+                        <img src={logoIpsum} alt="logo" />
                     </div>
                     <div className='searchBox'>
-                        <input type="text" placeholder='Find Minority Businesses'/>
-                        <img src={search} alt="search"/>
+                        <input type="text" placeholder='Find Minority Businesses' />
+                        <img src={search} alt="search" />
                     </div>
                 </div>
 
-            <div className='navRight flexBar'>
-                <div className='navItem'>
-                    <p >Businesses</p>
-                </div>
-                <div className='navItem'>
-                    <p>Community</p>
-                </div>
-                <div className='navItem'>
-                    <p>Resources</p>
+                <div className='navRight'>
+                    <div className='navItems'> {/* These are hidden on mobile */}
+                        <div className='navItem'>
+                            <p>Businesses</p>
+                        </div>
+                        <div className='navItem'>
+                            <p>Community</p>
+                        </div>
+                        <div className='navItem'>
+                            <p>Resources</p>
+                        </div>
+                        <div className='navItem'>
+                            <Link to="/reviews">Reviews</Link>
+                        </div>
+                    </div>
+
+                    <div className='navEnd'> {/* These are hidden on mobile */}
+                        <div className='signIn loginBox'>
+                            <p> Sign In </p>
+                        </div>
+                        <div className='Register loginBox'>
+                            <p> Register </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className='navEnd flexBar'>
-                <div className='signIn loginBox'>
-                    <p onClick={() => setIsOpen(true)} > Sign In </p >
-                </div>
-                <div className='Register loginBox'>
-                    <p> Register </p>
-                </div>
-            </div>
-            {isOpen && <Modal setIsOpen={setIsOpen} />}
             {/* Mobile Menu Button (Hamburger Icon) */}
             <button className="mobile-menu-button" onClick={toggleMobileMenu}>
             <span className="hamburger-line"></span>

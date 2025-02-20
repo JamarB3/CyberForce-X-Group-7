@@ -19,7 +19,7 @@ const BusinessCard = () => {
             <p className="distance"></p>
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default BusinessCard
+export default BusinessCard;

@@ -1,3 +1,5 @@
+/* src/pages/Home/Home.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 .flexContainer {
@@ -8,6 +10,7 @@
     padding: 20px;
     font-family: "Roboto", serif;
 }
+
 
 .blueBox {
     background-color: rgb(32, 32, 64);
@@ -62,8 +65,8 @@
 /* Media query for smaller screens */
 @media (max-width: 768px) {
     .blueBox {
-        height: auto; 
-        margin-bottom: 30px;
+        height: auto; /* Allow height to adjust on smaller screens */
+        margin-bottom: 30px; /* Reduced margin */
     }
 
     .blueBox h1 {
