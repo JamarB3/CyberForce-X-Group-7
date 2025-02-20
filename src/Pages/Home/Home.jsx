@@ -6,6 +6,7 @@ import Half from '../../assets/Stars/Half.svg'
 import Empty from '../../assets/Stars/Empty.svg'
 import BusinessCard from '../../Components/BusinessCard/BusinessCard'
 
+
 const Home = () => {
   return (
     <div>
