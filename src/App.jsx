@@ -3,15 +3,22 @@ import {Route, Routes} from 'react-router-dom'
 import Navbar from './Components/Navbar/Navbar'
 import './App.css'
 import Home from './Pages/Home/Home'
-
+import Businesses from './Pages/Businesses/Businesses'
+import Maps from './Pages/Maps/Maps'
 
 
 const App = () => {
+  
   return (
     <div>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />  
+        <Route path='/Businesses' element={<Businesses />} />  
+        <Route path='/Maps' element={<Maps />} />  
+
+
+
       </Routes>
     </div>
   )
