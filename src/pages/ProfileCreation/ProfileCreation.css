@@ -1,0 +1,41 @@
+.profile-input {
+    box-sizing: border-box;
+    height: 39px;
+    width: 200px;
+    border: 1px solid #E6E6E6;
+    border-radius: 5px;
+    margin-top: 5px; /* Adds space between label and input */
+    text-align: left; /* Ensures placeholder text aligns left */
+}
+
+.profile-label {
+    color: #333333;
+    font-family: "Open Sans";
+    font-size: 14px;
+    line-height: 24px;
+    margin-right: 10px;
+  
+}
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates two equal columns */
+    gap: 20px;
+    width: 100%;
+    text-align: left; /* Ensures text aligns left */
+    padding-left: 50px;
+    padding-top: 20px;
+}
+
+.grid-container > div {
+   
+    /* Align label and input vertically */
+    justify-content: flex-start; /* Align content to the left */
+}
