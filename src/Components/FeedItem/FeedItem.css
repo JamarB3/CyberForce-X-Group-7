@@ -1,0 +1,109 @@
+.FeedItem {
+    border-radius: 10px;
+    /* border:1px solid rgb(202, 202, 202); */
+    width:70%;
+    height:230px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+
+}
+
+.FeedItem * {
+    user-select: none;
+}
+
+
+.FeedItem .left {
+    position: relative;
+    left:20px;
+    /* border: 1px solid black; */
+    max-width: 80%;
+    height:90%;
+}
+
+.FeedItem .left h2 {
+    margin-top: 5px;
+    font-size: 24px;
+    margin-bottom: 35px;
+}
+
+.BusinessLogo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+
+}
+
+.innerRating {
+    /* border: 1px solid blueviolet; */
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+}
+
+.innerRating2 {
+    margin: 20px;
+    /* border: 1px solid blueviolet; */
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+}
+
+.innerRating p {
+    font-weight: 600;
+    color: gray;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.left .topReview {
+    position: relative;
+    color: black;
+    top: 30px;
+    font-size: 15px;
+    left: 30px;
+}
+
+
+
+
+.FeedItem .right {
+    position: relative;
+    /* border: 1px solid black; */
+    width: 40%;
+    height:90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.FeedItem .right button {
+    background-color: black;
+    color: white;
+    width: 190px;
+    border-radius: 13px;
+    font-size: 14px;
+    padding:10px;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.right .innerRating {
+    gap:13px;
+    margin-top:20px;
+}
+
+
+.right .innerRating img {
+    width: 90px;
+    height: 90px;
+    border-radius: 13px;
+}
+
+.imgContainer {
+    margin-left: -100px;
+}

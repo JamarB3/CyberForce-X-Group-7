@@ -1,0 +1,57 @@
+.Feedpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* This centers content horizontally */
+    justify-content: flex-start; /* Align items to the top */
+    width: 100%;
+    min-height: 100vh;        /* Grows naturally as more content is added */
+    padding-top: 30px;        /* Optional: adds space at the top if needed */
+    margin:0;
+    padding-bottom:0;
+
+  }
+  
+  /* Remove or adjust any vertical offsets in the header */
+  .Feedtop {
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    margin-top: 130px;
+    /* Removed: top: -30px and margin-top: 30px */
+  }
+
+  .Feedtop h1 {
+    font-size: 43px;
+  }
+
+  .Feedtop p1 {
+    font-size: 14px;
+  }
+  
+  
+
+
+.YourFeed {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:10px;
+}
+
+.tag {
+    background-color: black;
+    color:white;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left:7px;
+}
+
+
+.Feedpage-bottom {
+  height:100px;
+  width:100%;
+  padding: 0;
+  margin: 0;
+}

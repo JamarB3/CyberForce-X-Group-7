@@ -1,0 +1,28 @@
+
+  .description {
+    color:rgb(35, 35, 35);
+    font-size: 16px;
+    font-weight: 300;
+  }
+  
+
+  .googleLogin button {
+    border-radius: 45px;
+    cursor:pointer;
+    transition: background-color 0.3s;
+    border: 0.5px solid rgb(110, 110, 110);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:350px;
+    height:50px;
+    background-color: white;
+  }
+  
+  
+  
+  .googleLogin img {
+    width: 20px;
+    height: 20px;
+    margin-right:10px;
+  }
