@@ -7,13 +7,13 @@ nav {
     align-items: center;
     padding: 0 20px;
     height: 70px;
-    background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     position: fixed;
     width: 100%;
     font-family: "Roboto", serif;
     z-index: 1000;
-
+    background-color: white;
+    /* background-color: #7b67fb; */
 }
 
 
@@ -28,6 +28,7 @@ nav {
     margin-left: 70px;
     width:80px;
     margin-right: 60px;
+    cursor: pointer;
 }
 
 
@@ -38,7 +39,8 @@ nav {
     border-radius: 20px;
     padding: 5px;
     width:250px;
-    height:25px
+    height:25px;
+    background-color: white;
 
 }
 
@@ -49,6 +51,7 @@ nav {
     color: gray;
     font-family: "Roboto", serif;
     font-size: 14px;
+    background-color: transparent;
 }
 
 
@@ -127,3 +130,38 @@ nav {
     background-color: #c7c6c6;
 
 }
+
+
+/* Anchor the entire profile to the right */
+.profile {
+    position: absolute; /* or relative to a positioned parent */
+    right: 100px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    /* Remove margin-left since we’re anchoring on the right */
+  }
+  
+
+  .profile-text {
+    max-width: 200px;
+  }
+  /* Let the text stay left of the image */
+  .profile-text p {
+    font-weight: 500;
+    font-size: 18px;
+    margin-right: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #2c2c2c;
+  }
+  
+  /* Image styling remains the same */
+  .profile img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    transition: box-shadow 0.2s ease;
+  }
