@@ -43,6 +43,11 @@ const Businesses= () => {
           <div className='BHeader'>
           <h1> New Businesses </h1>
           <BusinessCard/>
+          <BusinessCard 
+        businessName=" Gavv's Galletes"
+        logo={New}
+        rating="4.9"
+      />
 
           </div>
 
@@ -50,6 +55,11 @@ const Businesses= () => {
           <h1>For You </h1>
           
           <BusinessCard/>
+          <BusinessCard 
+        businessName="nascita Coffee"
+        logo={New}
+        rating="5.0"
+      />
 
           </div>
           
