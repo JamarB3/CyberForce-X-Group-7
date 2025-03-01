@@ -13,6 +13,7 @@ const Navbar = ({ loggedIn, setLoggedIn, user, setUser }) => {
     /* React Hooks and functions for sign in/login modal. */
     const [modal, setModal] = useState(false);
     const [accountPopup, setAccountPopup] = useState(false);
+    const [accountInfo, setAccountInfo] = useState(false);
     // const [user, setUser] = useState(null);
     // const [loggedIn, setLoggedIn] = useState(false);
 
@@ -71,14 +72,14 @@ const Navbar = ({ loggedIn, setLoggedIn, user, setUser }) => {
 
 
         {loggedIn ? (
-        <div className="profile" onClick={togglePopup}>
+        <div className="profile top" onClick={togglePopup} onMouseEnter={() => setAccountInfo(true)} onMouseLeave={() => setAccountInfo(false)}>
             <div className="profile-text">
                 {/* <p>Chrisxz</p> */}
             </div>
             <img 
             src={user?.picture || "https://picsum.photos/200/300"} 
             alt="Profile" />            
-            <PopupMenu accountPopup={accountPopup} user={user}/>
+            <PopupMenu accountPopup={accountPopup} setLoggedIn={setLoggedIn} loggedIn={loggedIn} setUser={setUser} user={user}/>
         </div>
         ) : (
         <div className="navEnd flexBar">

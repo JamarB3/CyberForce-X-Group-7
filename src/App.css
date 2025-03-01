@@ -7,3 +7,8 @@ body {
     display: flex;
     justify-content: space-between;
 }
+
+.page-content {
+    display: flow-root; /* prevents margin collapse */
+    padding-top: 70px;
+}

@@ -3,8 +3,27 @@ import './PopupMenu.css'
 import logout from'../../assets/logout.svg'
 import profile_image from '../../assets/Coffee-png.png'
 import Settings from '../../assets/settings.svg'
+import axios from 'axios';
 
-const PopupMenu = ({accountPopup, user}) => {
+
+const PopupMenu = ({accountPopup, setLoggedIn, loggedIn, user, setUser}) => {
+
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post("http://localhost:3001/api/logout", {}, { withCredentials: true });
+      if (response.status === 200) {
+        // Optionally clear user state or redirect after logout
+        setLoggedIn(false);
+        console.log(loggedIn);
+        console.log("Logout successful!");
+      } else {
+        console.error("Logout failed:", response.data.message);
+      }
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
+  };
+  
 
   if (!accountPopup) return null;
   return (
@@ -25,7 +44,7 @@ const PopupMenu = ({accountPopup, user}) => {
           <span>Profile Settings</span>
         </div>
         
-        <div className='account-options-popup'>
+        <div className='account-options-popup' onClick={handleLogout}>
           <img src={logout}/>
           <span>Sign Out</span>
         </div>

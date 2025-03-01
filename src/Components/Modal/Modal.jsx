@@ -28,8 +28,8 @@ const Modal = ({ isOpen, onClose, setUser, setLoggedIn, children }) => {
 
         <span>or</span>
         
-        <input className="emailInput" placeholder='Email' type="email"/>
-        <input className="emailInput" placeholder='Password' type="password"/>
+        <input name="email" className="emailInput" placeholder='Email' type="email"   autocomplete="email"/>
+        <input className="emailInput" placeholder='Password' type="password"   name="password" autocomplete="password"/>
         <EmailLoginButton />
       </div>
     </div>

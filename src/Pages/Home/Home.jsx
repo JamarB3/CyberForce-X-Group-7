@@ -6,6 +6,8 @@ import Full from '../../assets/Stars/Full.svg';
 import Half from '../../assets/Stars/Half.svg';
 import Empty from '../../assets/Stars/Empty.svg';
 import BusinessCard from '../../Components/BusinessCard/BusinessCard';
+import Marquee from 'react-fast-marquee'
+
 
 const Home = ({ loggedIn }) => {
   const navigate = useNavigate();
@@ -23,13 +25,11 @@ const Home = ({ loggedIn }) => {
     <div className='Homepage gradient-text'>
       {/* Landing/Welcome to InclusiFind */}
       <div className="flexContainer blueBox">
-        <div className="flexContainer">
+        <div className="flexContainer column">
           <h1>
             Welcome to <span>InclusiFind</span>
-            <br />
-            Search
           </h1>
-          <h2></h2>
+          <input type="text" placeholder="Search for a business" />
         </div>
       </div>
 
@@ -37,7 +37,7 @@ const Home = ({ loggedIn }) => {
       <div className=''>
         <p className="topLeft">Explore Hundreds of Minority Owned Businesses</p>
         <div className='flexContainer'>
-          <div className="gridContainer">
+          <div className="flexContainer card_list">
             <BusinessCard />
             <BusinessCard />
             <BusinessCard />
