@@ -27,4 +27,6 @@ git clone --branch <branch-name> https://github.com/JamarB3/CyberForce-X-Group-7
 ```
 
 
+# How to download and see styled components (used for bridge page)
+npm install styled-components
 
