@@ -8,7 +8,7 @@ import BusinessProfileCreation from './pages/BusinessProfileCreation/BusinessPro
 const App = () => {
   return (
     <div>
-      
+      <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/profile' element={<ProfileCreation/>}/>

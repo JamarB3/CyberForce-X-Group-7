@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./BusinessProfileCreation.css";
 import RangeSlider from "../../components/RangeSlider/RangeSlider";
+import UploadAndDisplayImage from "../../components/ProfileImageUpload/ProfileImageupload";
 
 
 const interestsList = ["Technology", "Music", "Sports", "Travel", "Art", "Gaming", "Fitness", "Cooking"];
@@ -33,11 +34,22 @@ const BusinessProfileCreation = () => {
     console.log("Profile Data:", profile);
   };
 
+ 
+  const [selectedImages, setSelectedImages] = useState([]);
+  
+  const handleImageChange = (event) => {
+    const files = Array.from(event.target.files);
+    setSelectedImages((prevImages) => [...prevImages, ...files]);
+  };
+
   return (
     
     <div className="centered-container">
       <div className="column" style={{ display: 'flex', flexDirection: 'column', padding: '50px',  width: '85%'}}>
         <h2 className="text-xl font-bold">Create Your Business Profile</h2>
+        <div className="profile-photo-container"> 
+          <UploadAndDisplayImage></UploadAndDisplayImage>
+        </div>
         <div className="grid-container">
           <div> 
             <label className="profile-label">Business Name</label>
@@ -76,17 +88,7 @@ const BusinessProfileCreation = () => {
             />
           </div>
 
-          <div>
-            <label className="profile-label">Address:</label>
-            <input
-              type="text"
-              name="address"
-              placeholder="Enter address"
-              value={profile.address}
-              onChange={handleChange}
-              className="profile-input"
-            />
-          </div>
+         
         </div>
 
         
@@ -110,13 +112,13 @@ const BusinessProfileCreation = () => {
       <div style={{ borderBottom: '1px solid black', width: '100%' , opacity: 0.2, marginTop: '20px'}}></div>
 
       <div className="grid-container">
-          <div>
-            <div>
-              <label className="profile-label"> Location:</label>
+          <div >
+            <div >
+              <label className="profile-label"> Address:</label>
               <input
                 type="text"
                 name="phone"
-                placeholder="Enter City"
+                placeholder="Enter Business Address"
                 value={profile.phone}
                 onChange={handleChange}
                 className="profile-input"
@@ -157,24 +159,50 @@ const BusinessProfileCreation = () => {
           <h3 className="font-semibold">Select Business Tags:</h3>
           <div className="flex flex-wrap gap-2 mt-2">
             {interestsList.map((interest) => (
-              <button
+              <span
                 key={interest}
-                className={`px-3 py-1 cursor-pointer rounded-md text-sm ${
+                className={`tag ${
                   profile.interests.includes(interest)
                     ? "bg-blue-500 text-white"
                     : "bg-gray-200 text-gray-700"
                 }`}
                 onClick={() => toggleInterest(interest)}
                 style={{margin: '10px'}}
+                onMouseOver={(e) => (e.target.style.backgroundColor = "#0056b3")}
+                onMouseOut={(e) => (e.target.style.backgroundColor = "black")}
               >
                 {interest}
-              </button>
+              </span>
             ))}
           </div>
         </div>
 
-        <div style={{ borderBottom: '1px solid black', width: '100%' , opacity: 0.2, marginTop: '20px'}}></div>
+        <div style={{ borderBottom: '1px solid black', width: '100%' , opacity: 0.2, marginTop: '20px', marginBottom: '20px'}}></div>
+      </div>
+      
+      <div className="upload-container">
+        <label htmlFor="imageUpload" className="upload-button">
+          Business Portfolio
+        </label>
+        <input
+          type="file"
+          id="imageUpload"
+          multiple
+          accept="image/*"
+          onChange={handleImageChange}
+          className="hidden-input"
+        />
 
+        <div className="image-preview">
+          {selectedImages.map((image, index) => (
+            <img
+              key={index}
+              src={URL.createObjectURL(image)}
+              alt={`Preview ${index}`}
+              className="preview-image"
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

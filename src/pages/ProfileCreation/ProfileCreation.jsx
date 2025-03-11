@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./ProfileCreation.css";
 import RangeSlider from "../../components/RangeSlider/RangeSlider";
+import UploadAndDisplayImage from "../../components/ProfileImageUpload/ProfileImageupload";
 
 
 const interestsList = ["Technology", "Music", "Sports", "Travel", "Art", "Gaming", "Fitness", "Cooking"];
@@ -38,6 +39,9 @@ const ProfileCreation = () => {
     <div className="centered-container">
       <div className="column" style={{ display: 'flex', flexDirection: 'column', padding: '50px',  width: '85%'}}>
         <h2 className="text-xl font-bold">Create Your Profile</h2>
+        <div className="profile-photo-container"> 
+          <UploadAndDisplayImage></UploadAndDisplayImage>
+        </div>
         <div className="grid-container">
           <div> 
             <label className="profile-label">Full Name</label>
@@ -50,7 +54,7 @@ const ProfileCreation = () => {
               className="profile-input"
             />
           </div>
-
+          
           <div>
             <label className="profile-label">Email:</label>
             <input
@@ -91,21 +95,7 @@ const ProfileCreation = () => {
 
         
 
-        <div className="grid-container">
-          <div>
-            <label className="profile-label" style={{verticalAlign: 'top' }}>Description: </label>
-            <input
-              type="text"
-              name="address"
-              placeholder="Enter profile description"
-              value={profile.address}
-              onChange={handleChange}
-              className="profile-input"
-              style={{width: '75%', height: '100px'
-              }}
-            />
-          </div>
-        </div>
+       
       
       <div style={{ borderBottom: '1px solid black', width: '100%' , opacity: 0.2, marginTop: '20px'}}></div>
 
@@ -159,13 +149,15 @@ const ProfileCreation = () => {
             {interestsList.map((interest) => (
               <button
                 key={interest}
-                className={`px-3 py-1 cursor-pointer rounded-md text-sm ${
+                className={`tag ${
                   profile.interests.includes(interest)
                     ? "bg-blue-500 text-white"
                     : "bg-gray-200 text-gray-700"
                 }`}
                 onClick={() => toggleInterest(interest)}
                 style={{margin: '10px'}}
+                onMouseOver={(e) => (e.target.style.backgroundColor = "#0056b3")}
+                onMouseOut={(e) => (e.target.style.backgroundColor = "black")}
               >
                 {interest}
               </button>
