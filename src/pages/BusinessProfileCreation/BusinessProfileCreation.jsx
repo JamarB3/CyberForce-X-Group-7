@@ -178,33 +178,27 @@ const BusinessProfileCreation = () => {
         </div>
 
         <div style={{ borderBottom: '1px solid black', width: '100%' , opacity: 0.2, marginTop: '20px', marginBottom: '20px'}}></div>
+        <div style={{alignItems: 'center'}}>
+          <label htmlFor="imageUpload" className="upload-button">
+            Business Product Portfolio
+          </label>
+          <input
+            type="file"
+            id="imageUpload"
+            multiple
+            accept="image/*"
+            onChange={handleImageChange}
+            className="hidden-input"
+          />
+        </div>
+
+       
+
       </div>
       
-      <div className="upload-container">
-        <label htmlFor="imageUpload" className="upload-button">
-          Business Portfolio
-        </label>
-        <input
-          type="file"
-          id="imageUpload"
-          multiple
-          accept="image/*"
-          onChange={handleImageChange}
-          className="hidden-input"
-        />
-
-        <div className="image-preview">
-          {selectedImages.map((image, index) => (
-            <img
-              key={index}
-              src={URL.createObjectURL(image)}
-              alt={`Preview ${index}`}
-              className="preview-image"
-            />
-          ))}
-        </div>
+      
+     
       </div>
-    </div>
   );
 };
 
