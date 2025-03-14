@@ -1,0 +1,98 @@
+/* src/pages/GalleryPage/SectionPopup.css */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.upload-container {
+    margin-top: 15px;
+}
+
+.photo-preview {
+    display: flex;
+    overflow-x: auto;
+    margin-top: 10px;
+    max-width: 420px;
+    overflow-y: hidden;
+}
+
+.preview-photo-container{
+    position: relative;
+    display: inline-block;
+}
+
+.preview-photo {
+    max-width: 100px;
+    height: auto;
+    margin-right: 5px;
+    border-radius: 4px;
+}
+
+.delete-photo-button{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.submit-button,
+.cancel-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.cancel-button {
+    background-color: #ccc;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}

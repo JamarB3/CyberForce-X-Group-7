@@ -1,0 +1,95 @@
+/* src/pages/GalleryPage/GalleryPage.css */
+
+.gallery-page-container {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(to bottom, lightblue, magenta);
+    min-height: 100vh;
+}
+
+.add-section-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.section-description {
+    margin-top: 10px;
+    color: darkblue;
+    font-size: 1.2em;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+.sections-container {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.section {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the top */
+    margin-bottom: 10px; /* Add a little space below the header */
+}
+
+.section-header h2 {
+    margin: 0; /* Remove default margin from h2 */
+    font-size: 1.3em; /* Adjust font size if needed */
+    flex-grow: 1; /* Allow the name to take up available space */
+}
+
+.edit-section-icon {
+    cursor: pointer;
+    color: #007bff;
+    align-self: flex-start; /* Align the icon to the top */
+}
+
+.section-carousel {
+    display: flex;
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+.section-photo {
+    max-width: 150px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.expanded-image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.expanded-image {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 5px;
+}
